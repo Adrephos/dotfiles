@@ -21,3 +21,13 @@ vim.keymap.set('n', '<leader>hw', ':HopWord<CR>')
 -- harpoon
 vim.keymap.set('n', '<leader>hf', require('harpoon.mark').add_file, {})
 vim.keymap.set('n', '<leader>hl', require('harpoon.ui').toggle_quick_menu, {})
+
+-- Compile c++
+function CompileCpp()
+	vim.keymap.set('n', '<F8>',' :w <CR> :!clear ; g++ --std=c++17 -o %:r %; if [ -f a.out ]; then time ./a.out; fi <CR>', {})
+end
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" },
+{
+	pattern = { "*.cpp" },
+	callback = CompileCpp
+})
