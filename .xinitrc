@@ -9,12 +9,6 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 if [ -f $sysresources ]; then
 
-
-
-
-
-
-
     xrdb -merge $sysresources
 
 fi
@@ -24,12 +18,6 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
 
     xrdb -merge "$userresources"
 
@@ -49,38 +37,27 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # monitors
-xrandr --output eDP-1 --primary --mode 1366x768 --pos 1920x312 --output HDMI-1 --mode 1920x1080 --pos 0x0
+sleep 5;~/bin/xrandr.sh
 
 # compositor
-picom &
+picom --no-fading-openclose &
 
 # wallpaper
-feh --bg-scale --no-fehbg ~/Downloads/Wallpaper/275682.jpg
+sleep 5;feh --bg-fill --randomize ~/Pictures/Wallpaper/*
 
 # brightness
 xrandr --output eDP-1 --brightness 0.7
 
-clock() {
-  printf "^c#A4FFFF^  "
-  printf "^c#A4FFFF^$(date '+%H:%M')  ^c#FF66D8^ $(date '+%d/%m/%y')  "
-}
-
-battery() {
-  capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
-  printf "^c#F1FA8C^  "
-  printf "^c#FFFFA5^$capacity%%"
-}
-
-wlan() {
-  case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-	up) printf "^c#69ff94^ 直%s" " Up" ;;
-	down) printf "^c#ff6e6e^ 睊%s" " Down" ;;
-  esac
-}
-
-while true; do
-  xsetroot -name "$(battery) $(wlan) $(clock) "
-  sleep 30s
-done &
+# Autostart
+(sleep 5 && wmname LG3D) &
+rclone --vfs-cache-mode writes mount "college":  ~/workspace/college/ &
+flameshot &
+slstatus &
+ibus-daemon -drxR &
+volumeicon &
+nm-applet &
+udiskie &
+blueman-applet &
+discord &
 
 exec dwm
