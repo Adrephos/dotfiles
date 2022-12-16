@@ -1,0 +1,3 @@
+#!/bin/bash
+wmname compiz
+java -jar ~/Downloads/Minecraft/TLauncher-2.86.jar
