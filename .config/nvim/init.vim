@@ -4,6 +4,8 @@ set relativenumber
 set number
 set mouse=
 set tabstop=4 softtabstop=4 shiftwidth=2
+" map leader key
+let mapleader = ","
 
 call plug#begin()
 " misc
@@ -97,6 +99,8 @@ inoremap <expr> <S-cr> coc#pum#visible() ? coc#pum#confirm() : "\<S-CR>"
 
 nnoremap <leader>hw :HopWord<CR>
 
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
+
 let g:mkdp_auto_start = 1
 let g:mkdp_refresh_slow = 1
 let g:airline_theme='violet'
@@ -104,7 +108,6 @@ let g:airline_theme='violet'
 let g:vim_jsx_pretty_colorful_config = 1
 
 call wilder#setup({'modes': [':', '/', '?']})
-
 call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_palette_theme({
       \ 'border': 'rounded',
       \ 'max_height': '75%',
@@ -112,6 +115,17 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_pa
       \ 'prompt_position': 'top',
       \ 'reverse': 0,
       \ })))
+
+ " function to toggle numbers and relative numbers
+ function! NumberToggle()
+  set nu!
+  set rnu!
+endfunction
+
+map <F2> :call NumberToggle()<CR> 
+
+" compile C++
+autocmd vimEnter *.cpp map <F8> :w <CR> :!clear ; g++ --std=c++17 -o %:r.exe %; if [ -f a.out ]; then time ./a.out; fi <CR>
 
 lua << EOF
 vim.g.loaded_netrw = 1
@@ -125,6 +139,8 @@ require("nvim-tree").setup({
   },
   view = {
     adaptive_size = true,
+	number = true,
+	relativenumber = true,
 	float = {
 	  enable = true,
 	  quit_on_focus_loss = true,
