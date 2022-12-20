@@ -43,7 +43,7 @@ sleep 5;~/bin/xrandr.sh
 picom --no-fading-openclose &
 
 # wallpaper
-sleep 5;feh --bg-fill --randomize ~/Pictures/Wallpaper/*
+sleep 5;feh --bg-fill --randomize ~/Pictures/Wallpaper/Current
 
 # brightness
 xrandr --output eDP-1 --brightness 0.7

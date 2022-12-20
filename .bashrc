@@ -35,7 +35,6 @@ alias apolo="cd /home/gleipnir/workspace/Apolo"
 
 PF_ALIGN="10" PF_INFO="ascii title os kernel uptime pkgs" pfetch
 alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias wper='feh --bg-fill --randomize ~/Pictures/Wallpaper/*'
 
 #mount onedrive
 alias college="rclone --vfs-cache-mode writes mount "college":  ~/workspace/college/ &"
