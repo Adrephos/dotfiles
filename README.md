@@ -1,4 +1,5 @@
 # Dotfiles
+![screenshot](./Pictures/sshot.png)
 
 ## Stuff
 |||
@@ -14,5 +15,3 @@
 | Images			| [feh](https://feh.finalrewind.org/)       |
 | Audio				| [pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) - [pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/) -  [spotify](https://wiki.archlinux.org/title/spotify)|
 
-# To Do
-- [ ] Add mimeapps.list
