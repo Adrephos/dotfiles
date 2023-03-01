@@ -50,14 +50,20 @@ xrandr --output eDP-1 --brightness 0.7
 
 # Autostart
 (sleep 5 && wmname LG3D) &
-rclone --vfs-cache-mode writes mount "college":  ~/workspace/college/ &
+(sleep 5 && autostart_huion) &
 flameshot &
-slstatus &
 ibus-daemon -drxR &
-volumeicon &
 nm-applet &
 udiskie &
 blueman-applet &
 discord &
+xmousepasteblock &
+(sleep 5 && volumeicon) &
+
+while true; do
+  slstatus &
+  sleep 240s
+  killall slstatus
+done &
 
 exec dwm
