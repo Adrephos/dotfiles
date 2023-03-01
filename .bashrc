@@ -24,8 +24,8 @@ alias ls='ls -a --color=auto'
 alias ll='ls -la --color=auto'
 
 #shutdown or reboot
-alias ssn="shutdown now"
-alias sr="reboot"
+alias ssn="sudo systemctl poweroff"
+alias sr="sudo systemctl reboot"
 alias hib="/usr/bin/systemctl hibernate"
 
 #apolo ssh connect
@@ -39,7 +39,10 @@ alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 #mount onedrive
 alias college="rclone --vfs-cache-mode writes mount "college":  ~/workspace/college/ &"
 
+alias tools='cd /home/gleipnir/workspace/subjects/OrgComp/nand2tetris/tools'
+
 export QT_STYLE_OVERRIDE=plastique
+export SHUX_API_SA="$HOME/workspace/secrets/serviceaccount.json"
 
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
@@ -47,3 +50,19 @@ source $HOME/.asdf/completions/asdf.bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+img=$(/usr/bin/ls $HOME/Pictures/onefetch | sort -R | head -1)
+img_path=$HOME/Pictures/onefetch/$img
+
+LAST_REPO=""
+cd() {
+    builtin cd "$@";
+    git rev-parse 2>/dev/null;
+
+    if [ $? -eq 0 ]; then
+        if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel)) ]; then
+		onefetch -d project dependencies authors contributors url license -i $img_path
+        LAST_REPO=$(basename $(git rev-parse --show-toplevel))
+        fi
+    fi
+}
