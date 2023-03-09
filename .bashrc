@@ -41,11 +41,9 @@ alias college="rclone --vfs-cache-mode writes mount "college":  ~/workspace/coll
 
 alias tools='cd /home/gleipnir/workspace/subjects/OrgComp/nand2tetris/tools'
 
-export QT_STYLE_OVERRIDE=plastique
+export QT_STYLE_OVERRIDE=Dracula
+export QT_QPA_PLATFORMTHEME=gtk2
 export SHUX_API_SA="$HOME/workspace/secrets/serviceaccount.json"
-
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
