@@ -37,7 +37,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # monitors
-sleep 5;~/bin/xrandr.sh
+sleep 5;autorandr -c
 
 # compositor
 picom --no-fading-openclose &
@@ -46,11 +46,11 @@ picom --no-fading-openclose &
 sleep 5;feh --bg-fill --randomize ~/Pictures/Wallpaper/Current
 
 # brightness
-xrandr --output eDP-1 --brightness 0.7
+xrandr --output eDP --brightness 0.7
 
 # Autostart
 (sleep 5 && wmname LG3D) &
-(sleep 5 && autostart_huion) &
+autostart_huion &
 flameshot &
 ibus-daemon -drxR &
 nm-applet &
