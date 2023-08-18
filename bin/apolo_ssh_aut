@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+if [ $1 -eq 1 ] 
+then
+	env TERM=xterm-256color ssh jeavendanc@apolo.eafit.edu.co
+else
+	env TERM=xterm-256color ssh apolo@10.150.1.4
+fi
+
