@@ -9,10 +9,11 @@
 # Make nvim the default editor
 
 
-COLOR="\[$(tput setaf 213)\]"
+COLOR="\[$(tput setab 98)\]"
+COLOR_FG="\[$(tput setaf 98)\]"
 RESET="\[$(tput sgr0)\]"
 
-PS1="${COLOR}[\u@\h \W]\$${RESET} "
+PS1="${COLOR} \u@\h \W ${RESET}${COLOR_FG}${RESET} "
 
 export EDITOR='nvim'
 
@@ -28,13 +29,29 @@ alias ssn="sudo systemctl poweroff"
 alias sr="sudo systemctl reboot"
 alias hib="/usr/bin/systemctl hibernate"
 
+alias gpom="git push -u origin main"
+
 #apolo ssh connect
-alias apolo_ssh_tmux="ssh jeavendanc@apolo.eafit.edu.co"
-alias apolo_ssh="bash ~/bin/apolo_ssh.sh"
-alias apolo="cd /home/gleipnir/workspace/Apolo"
+alias apolo_ssh="zellij --layout /home/gleipnir/.config/zellij/layouts/apolo.kdl"
+alias atalaya="zellij --layout /home/gleipnir/.config/zellij/layouts/atalaya.kdl"
+alias apolo="cd /home/gleipnir/workspace/apolo"
 
 PF_ALIGN="10" PF_INFO="ascii title os kernel uptime pkgs" pfetch
 alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+#utils
+alias nnn='nnn -d -e -H -r'
+alias cat='bat --theme Dracula'
+alias cdw='cd $HOME/workspace/ && nnn'
+alias cdg='cd $HOME/workspace/github.com/ && nnn'
+alias cdf='cd $(find ~/workspace/ -type d | fzf)'
+alias venv='source ./venv/bin/activate'
+alias update='sudo pacman -Syu'
+
+#battery mng
+thresh () {
+	sudo bat-asus-battery threshold "$1"
+}
 
 #mount onedrive
 alias college="rclone --vfs-cache-mode writes mount "college":  ~/workspace/college/ &"
@@ -69,3 +86,6 @@ take () {
   mkdir "$1"
   cd "$1"
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PATH=$PATH:/home/gleipnir/.spicetify

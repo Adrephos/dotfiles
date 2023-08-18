@@ -46,22 +46,25 @@ picom --no-fading-openclose &
 sleep 5;feh --bg-fill --randomize ~/Pictures/Wallpaper/Current
 
 # brightness
-xrandr --output eDP --brightness 0.7
+xrandr --output eDP --brightness 0.8
+
+xsetroot -cursor_name left_ptr
 
 # Autostart
 (sleep 5 && wmname LG3D) &
 autostart_huion &
 flameshot &
-ibus-daemon -drxR &
 nm-applet &
 udiskie &
 blueman-applet &
 discord &
 xmousepasteblock &
-(sleep 5 && volumeicon) &
+setxkbmap -layout us -variant altgr-intl -option nodeadkeys &
+(sleep 5 && clipit) &
 
 while true; do
   slstatus &
+  temperature &
   sleep 240s
   killall slstatus
 done &
