@@ -45,8 +45,14 @@ alias cat='bat --theme Dracula'
 alias cdw='cd $HOME/workspace/ && nnn'
 alias cdg='cd $HOME/workspace/github.com/ && nnn'
 alias cdf='cd $(find ~/workspace/ -type d | fzf)'
+alias ssh='env TERM=xterm-256color ssh'
+alias ssh_sudo='sudo env TERM=xterm-256color ssh'
 alias venv='source ./venv/bin/activate'
 alias update='sudo pacman -Syu'
+alias vagrant='TERM=xterm-256color vagrant'
+
+# Vagrant vm's with zellij
+alias vm_ssh="zellij --layout /home/gleipnir/.config/zellij/layouts/vagrant.kdl"
 
 #battery mng
 thresh () {
@@ -69,6 +75,28 @@ export NVM_DIR="$HOME/.nvm"
 img=$(/usr/bin/ls $HOME/Pictures/onefetch | sort -R | head -1)
 img_path=$HOME/Pictures/onefetch/$img
 
+
+mkImageText () { 
+		echo ""
+    local aa fl width=${COLUMNS} prcent=50 text image lwidth rwidth ffont
+    while [ "${1::1}" == "-" ] ;do
+        case $1 in 
+            -w) shift;width=$1;shift;;
+            -p) shift;prcent=$1;shift;;
+            -f) shift;ffont="-f $1";shift;;
+        esac
+    done
+    image="$1" text="$2"
+    printf -v lwidth %.0f $(bc -l <<<"$width/250*$prcent")
+    rwidth=$((width-lwidth))
+    mapfile aa < <(catimg -w 60 "$image")
+    printf "%s" "${aa[@]}"
+    printf "\e[$((${#aa[@]}-1))A"
+    mapfile fl < <(echo "$text")
+    printf "\e[${lwidth}C%s" "${fl[@]}"
+    printf "\e[$((${#aa[@]}-${#fl[@]}-1))B"
+}
+
 LAST_REPO=""
 cd() {
     builtin cd "$@";
@@ -76,7 +104,7 @@ cd() {
 
     if [ $? -eq 0 ]; then
         if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel)) ]; then
-		onefetch -d project dependencies authors contributors url license -i $img_path
+					mkImageText ~/Pictures/onefetch/ERQkN6EXUAA-9RJ.png "$(onefetch --no-art)"
         LAST_REPO=$(basename $(git rev-parse --show-toplevel))
         fi
     fi
