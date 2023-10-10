@@ -1,10 +1,6 @@
-output DP-1-0
-off
-output DP-1-1
-off
-output HDMI-A-0
+output eDP
 crtc 0
-gamma 1.0:1.0:0.909
+gamma 1.0:0.769:0.588
 mode 1920x1080
 pos 0x0
 primary
@@ -16,13 +12,15 @@ x-prop-tearfree auto
 x-prop-underscan off
 x-prop-underscan_hborder 0
 x-prop-underscan_vborder 0
-output eDP
+output HDMI-A-0
 crtc 1
-gamma 1.0:1.0:0.909
-mode 1920x1080
+filter bilinear
+gamma 1.0:0.769:0.588
+mode 1280x1024
 pos 1920x0
-rate 144.00
-x-prop-max_bpc 16
+rate 60.02
+transform 1.199997,0.000000,0.000000,0.000000,1.199997,0.000000,0.000000,0.000000,1.000000
+x-prop-max_bpc 8
 x-prop-non_desktop 0
 x-prop-scaling_mode None
 x-prop-tearfree auto
