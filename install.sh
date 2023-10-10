@@ -12,6 +12,12 @@ sudo make clean install
 cd $HOME/.config/dmenu/
 sudo make clean install
 
+cd $HOME/.config/slstatus/
+sudo make clean install
+
+cd $HOME/.config/dunst/
+sudo make install
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
