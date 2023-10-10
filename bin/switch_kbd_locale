@@ -2,5 +2,5 @@
 
 case $(setxkbmap -query | grep layout | awk '{ print $2 }') in
   us) setxkbmap es ;;
-  es) setxkbmap us ;;
+  es) setxkbmap -layout us -variant altgr-intl -option nodeadkeys;;
 esac
