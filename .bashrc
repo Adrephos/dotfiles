@@ -22,7 +22,7 @@ bind "set completion-ignore-case on"
 
 #list
 alias ls='ls -a --color=auto'
-alias ll='ls -la --color=auto'
+alias ll='ls -lah --color=auto'
 
 #shutdown or reboot
 alias ssn="sudo systemctl poweroff"
@@ -30,6 +30,7 @@ alias sr="sudo systemctl reboot"
 alias hib="/usr/bin/systemctl hibernate"
 
 alias gpom="git push -u origin main"
+alias gpo="git push origin"
 
 #apolo ssh connect
 alias apolo_ssh="zellij --layout /home/gleipnir/.config/zellij/layouts/apolo.kdl"
@@ -66,7 +67,6 @@ alias tools='cd /home/gleipnir/workspace/subjects/OrgComp/nand2tetris/tools'
 
 export QT_STYLE_OVERRIDE=Dracula
 export QT_QPA_PLATFORMTHEME=gtk2
-export SHUX_API_SA="$HOME/workspace/secrets/serviceaccount.json"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -117,3 +117,9 @@ take () {
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:/home/gleipnir/.spicetify
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/gleipnir/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/gleipnir/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/gleipnir/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/gleipnir/Downloads/google-cloud-sdk/completion.bash.inc'; fi
