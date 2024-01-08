@@ -1,0 +1,10 @@
+#!/bin/bash
+
+current_hour=$(date +"%H")
+
+if (( current_hour >= 19 || current_hour < 5 )); then
+    redshift -P -O 4000
+else
+    redshift -P -O 6000
+fi
+echo $current_hour
