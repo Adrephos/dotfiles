@@ -77,15 +77,15 @@ img_path=$HOME/Pictures/onefetch/$img
 
 LAST_REPO=""
 cd() {
-    builtin cd "$@";
-    git rev-parse 2>/dev/null;
+	builtin cd "$@";
+	git rev-parse 2>/dev/null;
 
-    if [ $? -eq 0 ]; then
-        if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel)) ]; then
-		onefetch -d dependencies authors contributors license -i $img_path --image-protocol kitty
-        LAST_REPO=$(basename $(git rev-parse --show-toplevel))
-        fi
-    fi
+	if [ $? -eq 0 ]; then
+		if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel))  ] && [ -z "${ZELLIJ}" ]; then
+			onefetch -d dependencies authors contributors license -i $img_path --image-protocol kitty
+			LAST_REPO=$(basename $(git rev-parse --show-toplevel))
+		fi
+	fi
 }
 
 take () {
