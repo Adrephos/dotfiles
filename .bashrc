@@ -75,28 +75,6 @@ export NVM_DIR="$HOME/.nvm"
 img=$(/usr/bin/ls $HOME/Pictures/onefetch | sort -R | head -1)
 img_path=$HOME/Pictures/onefetch/$img
 
-
-mkImageText () { 
-		echo ""
-    local aa fl width=${COLUMNS} prcent=50 text image lwidth rwidth ffont
-    while [ "${1::1}" == "-" ] ;do
-        case $1 in 
-            -w) shift;width=$1;shift;;
-            -p) shift;prcent=$1;shift;;
-            -f) shift;ffont="-f $1";shift;;
-        esac
-    done
-    image="$1" text="$2"
-    printf -v lwidth %.0f $(bc -l <<<"$width/250*$prcent")
-    rwidth=$((width-lwidth))
-    mapfile aa < <(catimg -w 60 "$image")
-    printf "%s" "${aa[@]}"
-    printf "\e[$((${#aa[@]}-1))A"
-    mapfile fl < <(echo "$text")
-    printf "\e[${lwidth}C%s" "${fl[@]}"
-    printf "\e[$((${#aa[@]}-${#fl[@]}-1))B"
-}
-
 LAST_REPO=""
 cd() {
     builtin cd "$@";
@@ -104,7 +82,7 @@ cd() {
 
     if [ $? -eq 0 ]; then
         if [ "$LAST_REPO" != $(basename $(git rev-parse --show-toplevel)) ]; then
-					mkImageText ~/Pictures/onefetch/ERQkN6EXUAA-9RJ.png "$(onefetch --no-art)"
+		onefetch -d dependencies authors contributors license -i $img_path --image-protocol kitty
         LAST_REPO=$(basename $(git rev-parse --show-toplevel))
         fi
     fi
@@ -119,7 +97,7 @@ take () {
 export PATH=$PATH:/home/gleipnir/.spicetify
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/gleipnir/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/gleipnir/Downloads/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/home/gleipnir/google-cloud-sdk/path.bash.inc' ]; then . '/home/gleipnir/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/gleipnir/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/gleipnir/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/home/gleipnir/google-cloud-sdk/completion.bash.inc' ]; then . '/home/gleipnir/google-cloud-sdk/completion.bash.inc'; fi
