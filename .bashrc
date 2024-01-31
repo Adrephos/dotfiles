@@ -45,7 +45,6 @@ alias nnn='nnn -d -e -H -r'
 alias cat='bat --theme Dracula'
 alias cdw='cd $HOME/workspace/ && nnn'
 alias cdg='cd $HOME/workspace/github.com/ && nnn'
-alias cdf='cd $(find ~/workspace/ -type d | fzf)'
 alias ssh='env TERM=xterm-256color ssh'
 alias ssh_sudo='sudo env TERM=xterm-256color ssh'
 alias venv='source ./venv/bin/activate'
@@ -59,11 +58,6 @@ alias vm_ssh="zellij --layout /home/gleipnir/.config/zellij/layouts/vagrant.kdl"
 thresh () {
 	sudo bat-asus-battery threshold "$1"
 }
-
-#mount onedrive
-alias college="rclone --vfs-cache-mode writes mount "college":  ~/workspace/college/ &"
-
-alias tools='cd /home/gleipnir/workspace/subjects/OrgComp/nand2tetris/tools'
 
 export QT_STYLE_OVERRIDE=Dracula
 export QT_QPA_PLATFORMTHEME=gtk2

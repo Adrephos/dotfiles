@@ -1,8 +1,0 @@
-#! /bin/bash  
-if [ "$1" = "up" ]; then
-  percent="1"
-else
-  percent="0.$1"
-fi
-
-xrandr --output eDP --brightness "$percent"
