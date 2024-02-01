@@ -2,7 +2,7 @@
 
 set -e
 
-cd $(find ~/workspace/ -type d | fzf)
+cd $(find ~/ -path ~/onedrive -prune -o -type d | fzf)
 
 dir=$(basename "$(pwd)")
 
