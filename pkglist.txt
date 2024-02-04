@@ -148,3 +148,4 @@ xorg-xwud
 youtube-music-bin
 zellij
 zip
+playerctl
