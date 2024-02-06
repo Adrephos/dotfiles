@@ -65,15 +65,16 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
     /* function format          argument */
-    {run_command,    " %s",                              "music_info" },
-    {separator,      "   ",                               NULL },
-    {cpu_perc,       "^c#A4FFFF^%3s",                    NULL},
-    {separator,      "   ",                               NULL },
-    {ram_perc,       "^c#F1FA8C^%3s",                    NULL},
-    {separator,      "   ",                               NULL },
-    {battery_state,  "^c#69ff94^%s",                      "BAT1"},
-    {battery_perc,   "^c#69ff94^%3s",                     "BAT1"},
-    {separator,      "   ",                               NULL },
-    {datetime,       "%s", "^c#bd93f9^%e/%m/%Y %H:%M"},
-    {separator,      "              ",                    NULL },
+    {run_command,    " %s",                    "music_info" },
+    {separator,      "   ^c#A4FFFF^",           NULL },
+    {cpu_perc,       "%3s",                    NULL},
+    {separator,      "   ^c#F1FA8C^",           NULL },
+    {ram_perc,       "%3s",                    NULL},
+    {separator,      "   ^c#69ff94^",           NULL },
+    {run_command,    "%s",                      "battery_icon" },
+    {separator,      "   ^c#bd93f9^",           NULL },
+    {datetime,       "%s", " %2d/%m/%Y"},
+    {separator,      " ^c#6272A4^",             NULL },
+    {datetime,       "%s", "%H:%M"},
+    {separator,      "              ",          NULL },
 };

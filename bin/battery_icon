@@ -1,0 +1,43 @@
+#!/bin/bash
+
+status=$(/bin/cat /sys/class/power_supply/BAT1/status)
+cap=$(/bin/cat /sys/class/power_supply/BAT1/capacity)
+bucket=$(("$cap"/10))
+
+get_icon() {
+	if [[ "$status" == "Charging" ]]; then
+		echo ""
+	else
+		 case $bucket in
+				 9)
+			echo ""
+			;;
+		 8)
+			echo ""
+			;;
+		 7)
+			echo ""
+			;;
+		 6)
+			echo ""
+			;;
+		 5)
+			echo ""
+			;;
+		 4)
+			echo ""
+			;;
+		 3)
+			echo ""
+			;;
+		 2)
+			echo ""
+			;;
+		*)
+			echo ""
+			;;
+		esac
+	fi
+}
+
+echo $(get_icon) "$cap"
