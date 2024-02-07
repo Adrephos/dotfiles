@@ -74,7 +74,7 @@ static const struct arg args[] = {
     {run_command,    "%s",                      "battery_icon" },
     {separator,      "   ^c#bd93f9^",           NULL },
     {datetime,       "%s", " %2d/%m/%Y"},
-    {separator,      " ^c#6272A4^",             NULL },
+    {separator,      " ^c#FF79C6^",             NULL },
     {datetime,       "%s", "%H:%M"},
     {separator,      "              ",          NULL },
 };
