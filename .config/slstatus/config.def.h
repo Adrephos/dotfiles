@@ -76,5 +76,5 @@ static const struct arg args[] = {
     {datetime,       "%s", " %2d/%m/%Y"},
     {separator,      " ^c#FF79C6^",             NULL },
     {datetime,       "%s", "%H:%M"},
-    {separator,      "              ",          NULL },
+    {separator,      "   ",                     NULL },
 };
