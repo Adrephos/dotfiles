@@ -51,22 +51,6 @@ xrandr --output eDP --brightness 0.8
 xsetroot -cursor_name left_ptr
 
 # Autostart
-(sleep 5 && wmname LG3D) &
-autostart_huion &
-flameshot &
-nm-applet &
-udiskie &
-blueman-applet &
-discord &
-xmousepasteblock &
-setxkbmap -layout us -variant altgr-intl -option nodeadkeys &
-(sleep 5 && clipit) &
-
-while true; do
-  slstatus &
-  temperature &
-  sleep 240s
-  killall slstatus
-done &
+autostart &
 
 exec dwm
