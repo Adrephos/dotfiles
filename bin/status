@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BLUE="^c#A4FFFF^"
+YELLOW="^c#F1FA8C^"
+GREEN="^c#69ff94^"
+PURPLE="^c#bd93f9^"
+PINK="^c#FF79C6^"
+
+while true; do
+	music=" $(~/bin/music_info)"
+	cpu="$(top -bn1 | awk '/%Cpu/ {printf "%3.0f", 100-$8; exit}')"
+	ram="$(free | awk '/^Mem/ {printf "%3.0f", $3/$2 * 100}')"
+	battery=$(~/bin/battery_icon)
+	date=" $(date +%d/%m/%Y)"
+	hour="$(date +%H:%M)"
+
+	xsetroot -name "$music   $BLUE$cpu   $YELLOW$ram   $GREEN$battery   $PURPLE$date $PINK$hour  "
+	sleep 3s
+done
