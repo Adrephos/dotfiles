@@ -1,5 +1,8 @@
 # Dotfiles
-![screenshot](./Pictures/sshot.png)
+|                                              |                                         |
+|----------------------------------------------|-----------------------------------------|
+| ![wallpaper](./Pictures/wallpaper-sshot.png) | ![nvim](./Pictures/nvim-sshot.png)      |
+| ![yt-music](./Pictures/yt-music-sshot.png)   | ![terminal](./Pictures/kitty-sshot.png) |
 
 ## Stuff
 |||
@@ -13,5 +16,5 @@
 | Window Manager	| [dwm](https://dwm.suckless.org/) |
 | Status monitor	| [slstatus](https://tools.suckless.org/slstatus/) |
 | Images			| [feh](https://feh.finalrewind.org/)       |
-| Audio				| [pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) - [pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/) -  [spotify](https://wiki.archlinux.org/title/spotify)|
+| Audio				| [pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) - [pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/) -  [yt-music](https://github.com/th-ch/youtube-music)|
 
