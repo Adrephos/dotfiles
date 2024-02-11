@@ -16,7 +16,7 @@ artist="${artist_arr[0]}"
 
 IFS=$OLD_IFS
 
-if [ -z $artist ] & [ -z $title ]; then
+if [ -z "$artist" ] && [ -z "$title" ]; then
 	echo "Not playing anyting right now"
 else
 	echo "$artist - $title"
