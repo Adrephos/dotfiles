@@ -1,10 +1,19 @@
 #!/bin/bash
 
-current_hour=$(date +"%H")
+while true; do
+	midnight=$(date -d "today 0" +%s)
+	morning=$((midnight + (5*3600)))
+	night=$((midnight + (19*3600)))
+	hour=$(date +%s)
 
-if (( current_hour >= 19 || current_hour < 5 )); then
-    redshift -P -O 4000
-else
-    redshift -P -O 6000
-fi
-echo $current_hour
+	if (( hour >= night || hour < morning )); then
+		hours_tillchange=$((morning - hour))
+		redshift -P -O 4000
+	else
+		hours_tillchange=$((night - hour))
+		redshift -P -O 6000
+	fi
+
+	absolute=$((hours_tillchange < 0 ? -hours_tillchange : hours_tillchange))
+	sleep absolute
+done
