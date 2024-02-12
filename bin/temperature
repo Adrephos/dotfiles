@@ -15,5 +15,5 @@ while true; do
 	fi
 
 	absolute=$((hours_tillchange < 0 ? -hours_tillchange : hours_tillchange))
-	sleep absolute
+	sleep $absolute
 done
