@@ -8,6 +8,7 @@ discord &
 xmousepasteblock &
 setxkbmap -layout us -variant altgr-intl -option nodeadkeys &
 (sleep 5 && clipit) &
+(sleep 5 && volctl)&
 (sleep 5 && systemctl --user start opentabletdriver.service) &
 status &
 temperature &
