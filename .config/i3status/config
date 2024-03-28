@@ -52,7 +52,7 @@ battery 1 {
 
 
 tztime local {
-    format = "  %A %e.%B   %H:%M"
+    format = "  %A %e.%B    %H:%M"
 }
 
 memory {
