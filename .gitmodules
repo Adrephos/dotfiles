@@ -10,9 +10,9 @@
 [submodule ".config/batify"]
 	path = .config/batify
 	url = https://github.com/Adrephos/batify
-[submodule ".config/i3"]
-	path = .config/i3
-	url = https://github.com/Adrephos/i3.git
 [submodule ".config/i3status"]
 	path = .config/i3status
 	url = https://github.com/Adrephos/i3status.git
+[submodule ".config/i3"]
+	path = .config/i3
+	url = https://github.com/adrephos/i3
