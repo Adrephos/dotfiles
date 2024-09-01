@@ -9,11 +9,11 @@
 # Make nvim the default editor
 
 
-COLOR="\[$(tput setab 98)\]"
-COLOR_FG="\[$(tput setaf 98)\]"
-RESET="\[$(tput sgr0)\]"
-
-PS1="${COLOR} \u@\h \W ${RESET}${COLOR_FG}${RESET} "
+# COLOR="\[$(tput setab 98)\]"
+# COLOR_FG="\[$(tput setaf 98)\]"
+# RESET="\[$(tput sgr0)\]"
+# 
+# PS1="${COLOR} \u@\h \W ${RESET}${COLOR_FG}${RESET} "
 
 export EDITOR='nvim'
 
@@ -38,7 +38,7 @@ alias atalaya="zellij --layout /home/gleipnir/.config/zellij/layouts/atalaya.kdl
 alias apolo="cd /home/gleipnir/workspace/apolo"
 
 PF_ALIGN="10" PF_INFO="ascii title os kernel uptime pkgs" pfetch
-alias dot='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dot='/home/gleipnir/.nix-profile/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 #utils
 alias nnn='nnn -d -e -H -r'
