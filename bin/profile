@@ -1,0 +1,19 @@
+#!/run/current-system/sw/bin/bash
+
+status=$(cat /sys/class/power_supply/BAT1/status)
+
+get_icon() {
+	if [[ "$status" == "Charging" ]]; then
+    powerprofilesctl set performance;
+	elif [[ "$status" == "Not charging" ]]; then
+    powerprofilesctl set performance
+	elif [[ "$status" == "Full" ]]; then
+    powerprofilesctl set performance;
+	else
+    powerprofilesctl set power-saver;
+  fi
+
+  powerprofilesctl get
+}
+
+echo $(get_icon)
