@@ -8,7 +8,7 @@
 		"x": 6,
 		"y": 6
 	},
-	"url": "https://music.youtube.com/watch?v=-PIC0wb8jgY&list=PLmN9DPbTcOwwfNMa8n9rRGeq9H32PaAu-&index=0",
+	"url": "https://music.youtube.com/watch?v=2t1omvc_QUM",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -45,11 +45,11 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 40
+			"savedVolume": 50
 		},
 		"discord": {
 			"listenAlong": true,
-			"enabled": true
+			"enabled": false
 		},
 		"in-app-menu": {
 			"enabled": true
@@ -68,6 +68,19 @@
 			"ratio": 0.5
 		},
 		"lyrics-genius": {
+			"enabled": true,
+			"romanizedLyrics": true
+		},
+		"skip-disliked-songs": {
+			"enabled": true
+		},
+		"bypass-age-restrictions": {
+			"enabled": true
+		},
+		"compact-sidebar": {
+			"enabled": true
+		},
+		"downloader": {
 			"enabled": true
 		}
 	},
