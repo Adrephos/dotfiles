@@ -1,0 +1,32 @@
+main.advanced_view false
+main.audio_codec opus
+main.audio_input Default output
+main.audio_input NoiseTorch Microphone for Razer Seiren Mini Source
+main.codec auto
+main.color_range limited
+main.fps 30
+main.framerate_mode auto
+main.hide_window_when_recording false
+main.merge_audio_tracks true
+main.overclock false
+main.quality high
+main.record_area_height 1080
+main.record_area_option HDMI-A-1-0
+main.record_area_width 1920
+main.record_cursor true
+main.show_notifications true
+record.container mp4
+record.pause_recording_hotkey 65471 256
+record.save_directory /home/gleipnir/Videos
+record.start_recording_hotkey 65470 256
+replay.container mp4
+replay.save_directory /run/media/gleipnir/Jogos/Videos/Replay
+replay.save_recording_hotkey 122 256
+replay.start_recording_hotkey 0 0
+replay.time 300
+streaming.custom.container flv
+streaming.custom.url 
+streaming.service twitch
+streaming.start_recording_hotkey 65470 256
+streaming.twitch.key 
+streaming.youtube.key 
