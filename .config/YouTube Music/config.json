@@ -8,7 +8,7 @@
 		"x": 6,
 		"y": 6
 	},
-	"url": "https://music.youtube.com/watch?v=-PIC0wb8jgY&list=PLmN9DPbTcOwwfNMa8n9rRGeq9H32PaAu-&index=0",
+	"url": "https://music.youtube.com/watch?v=sJbd1WhOauk&list=RDATgXmc&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -45,11 +45,17 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 45
+			"savedVolume": 48
 		},
 		"discord": {
-			"listenAlong": true,
-			"enabled": false
+			"enabled": true,
+			"autoReconnect": true,
+			"activityTimeoutEnabled": true,
+			"activityTimeoutTime": 600000,
+			"playOnYouTubeMusic": true,
+			"hideGitHubButton": true,
+			"hideDurationLeft": false,
+			"listenAlong": true
 		},
 		"in-app-menu": {
 			"enabled": true
