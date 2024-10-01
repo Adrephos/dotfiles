@@ -7,18 +7,18 @@ main.color_range limited
 main.fps 30
 main.framerate_mode auto
 main.hide_window_when_recording false
-main.merge_audio_tracks true
+main.merge_audio_tracks false
 main.overclock false
-main.quality high
+main.quality very_high
 main.record_area_height 1080
 main.record_area_option HDMI-A-1-0
 main.record_area_width 1920
 main.record_cursor true
 main.show_notifications true
 record.container mp4
-record.pause_recording_hotkey 65471 256
+record.pause_recording_hotkey 0 0
 record.save_directory /home/gleipnir/Videos
-record.start_recording_hotkey 65470 256
+record.start_recording_hotkey 0 0
 replay.container mp4
 replay.save_directory /run/media/gleipnir/Jogos/Videos/Replay
 replay.save_recording_hotkey 122 256
