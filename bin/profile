@@ -3,17 +3,25 @@
 status=$(cat /sys/class/power_supply/BAT1/status)
 
 get_icon() {
-	if [[ "$status" == "Charging" ]]; then
+  if [[ "$1" == "Charging" ]]; then
     powerprofilesctl set performance;
-	elif [[ "$status" == "Not charging" ]]; then
+  elif [[ "$1" == "Not charging" ]]; then
     powerprofilesctl set performance
-	elif [[ "$status" == "Full" ]]; then
+  elif [[ "$1" == "Full" ]]; then
     powerprofilesctl set performance;
-	else
+  else
     powerprofilesctl set power-saver;
   fi
 
-  powerprofilesctl get
+  echo "Setting power profile to $(powerprofilesctl get)"
 }
 
-echo $(get_icon)
+while true; do
+  current=$(cat /sys/class/power_supply/BAT1/status)
+  if [ "$current" != "$status" ]; then
+    echo $current
+    status=$current
+    get_icon $status
+  fi
+  sleep 5s
+done
