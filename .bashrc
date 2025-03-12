@@ -96,3 +96,11 @@ if [ -f '/home/gleipnir/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/ho
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/gleipnir/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/gleipnir/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+# pnpm
+export PNPM_HOME="/home/gleipnir/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

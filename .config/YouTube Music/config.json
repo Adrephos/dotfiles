@@ -8,7 +8,7 @@
 		"x": 6,
 		"y": 6
 	},
-	"url": "https://music.youtube.com/watch?v=ekk0NSXCuqI&list=RDTMAK5uy_k5UUl0lmrrfrjMpsT0CoMpdcBz1ruAO1k&index=0",
+	"url": "https://music.youtube.com/watch?v=Ub9VvJbfbwE&list=RDAMVM7M4OoN4geok&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -32,7 +32,14 @@
 	},
 	"plugins": {
 		"notifications": {
-			"enabled": true
+			"enabled": true,
+			"unpauseNotification": true,
+			"urgency": "normal",
+			"interactive": true,
+			"toastStyle": 1,
+			"refreshOnPlayPause": false,
+			"trayControls": true,
+			"hideButtonText": false
 		},
 		"video-toggle": {
 			"mode": "custom"
@@ -45,7 +52,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 15
+			"savedVolume": 30
 		},
 		"discord": {
 			"enabled": true,
@@ -105,6 +112,9 @@
 		},
 		"adblocker": {
 			"enabled": false
+		},
+		"equalizer": {
+			"enabled": true
 		}
 	},
 	"__internal__": {
