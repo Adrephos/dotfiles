@@ -1,0 +1,42 @@
+#!/run/current-system/sw/bin/bash
+
+ROOT_DIR="$1"
+OLD_HOST="$2"
+NEW_HOST="$3"
+APPLY="$4"
+
+if [ -z "$ROOT_DIR" ] || [ -z "$OLD_HOST" ] || [ -z "$NEW_HOST" ]; then
+  echo "Usage: $0 /path/to/dir old-host new-host [--apply]"
+  exit 1
+fi
+
+echo "Searching in: $ROOT_DIR"
+echo "Replacing: $OLD_HOST -> $NEW_HOST"
+echo "Mode: ${APPLY:-preview}"
+
+find "$ROOT_DIR" -type d -name ".git" | while read -r gitdir; do
+  repo=$(dirname "$gitdir")
+  cd "$repo" || continue
+
+  if ! git remote get-url origin &> /dev/null; then
+    echo "❌ No 'origin' remote in $repo"
+    cd - > /dev/null
+    continue
+  fi
+
+  old_url=$(git remote get-url origin)
+
+  if [[ "$old_url" == *"$OLD_HOST"* ]]; then
+    new_url="${old_url//$OLD_HOST/$NEW_HOST}"
+    echo "🔧 $repo"
+    echo "  Old: $old_url"
+    echo "  New: $new_url"
+
+    if [ "$APPLY" == "--apply" ]; then
+      git remote set-url origin "$new_url"
+      echo "  ✅ Updated"
+    fi
+  fi
+
+  cd - > /dev/null
+done
