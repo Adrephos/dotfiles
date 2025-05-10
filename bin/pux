@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PRJ="$(zoxide query -i)"
+echo "Launching tmux for $PRJ"
+cd "$PRJ" || exit 1
+
+SESSION_NAME="$(basename "$PRJ")"
+TMUX_SOCKET="$PRJ.tmux"
+
+if ! tmux -S "$TMUX_SOCKET" has-session -t "$SESSION_NAME" 2>/dev/null; then
+  # Create a new session with first window running nvim
+  tmux -S "$TMUX_SOCKET" new-session -d -s "$SESSION_NAME" -c "$PRJ" -n nvim 'nvim'
+
+  # Create a second window with a shell
+  tmux -S "$TMUX_SOCKET" new-window -t "$SESSION_NAME" -n shell -c "$PRJ"
+fi
+
+# Attach and focus the nvim window
+exec tmux -S "$TMUX_SOCKET" attach -t "$SESSION_NAME":nvim

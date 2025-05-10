@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+while true; do
+    adb wait-for-device
+
+    if adb devices | grep -w "device" > /dev/null; then
+        choice=$(echo -e "Yes\nNo" | rofi -dmenu -p "Launch scrcpy on workspace 7?")
+        if [[ "$choice" == "Yes" ]]; then
+            # Switch to workspace 7 before launching
+            i3-msg 'workspace 7:七'
+            scrcpy --stay-awake &
+        fi
+
+        # Wait for disconnection before looping again
+        while adb get-state 2>/dev/null | grep -q "device"; do
+            sleep 2
+        done
+    fi
+
+    sleep 1
+done
+
