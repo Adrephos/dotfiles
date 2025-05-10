@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 BLUE="^c#A4FFFF^"
 YELLOW="^c#F1FA8C^"

@@ -1,14 +1,14 @@
 {
 	"window-size": {
-		"width": 1939,
-		"height": 1086
+		"width": 1955,
+		"height": 1100
 	},
-	"window-maximized": false,
+	"window-maximized": true,
 	"window-position": {
-		"x": 1956,
-		"y": 6
+		"x": 1952,
+		"y": 2
 	},
-	"url": "https://music.youtube.com/watch?v=R9dWP-gupj0&list=RDAMVMUtJ3g90w_14&index=0",
+	"url": "https://music.youtube.com/watch?v=IZYaM4b3yao&list=RDAMPLPLLtNIUY_6rUCnGH3DBt3lUcr2UzCEYwCF&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -52,7 +52,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 55
+			"savedVolume": 29
 		},
 		"discord": {
 			"enabled": true,
@@ -119,7 +119,7 @@
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "3.7.4"
+			"version": "3.8.0"
 		}
 	}
 }

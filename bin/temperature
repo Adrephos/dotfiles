@@ -1,4 +1,4 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 
 while true; do
 	midnight=$(date -d "today 0" +%s)
@@ -8,10 +8,12 @@ while true; do
 
 	if (( hour >= night || hour < morning )); then
 		hours_tillchange=$((morning - hour))
-		redshift -P -O 2400
+    # Night
+		redshift -P -O 2200
 	else
+    # Day
 		hours_tillchange=$((night - hour))
-		redshift -P -O 6500
+		redshift -P -O 8500
 	fi
 
 	absolute=$((hours_tillchange < 0 ? -hours_tillchange : hours_tillchange))

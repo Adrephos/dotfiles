@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 (sleep 5 && wmname LG3D) &
 flameshot &

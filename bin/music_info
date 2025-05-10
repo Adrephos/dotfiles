@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 OLD_IFS=$IFS
 artist=$(playerctl metadata --format '{{ artist }}')

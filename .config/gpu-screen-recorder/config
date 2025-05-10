@@ -34,7 +34,7 @@ record.pause_unpause_recording_hotkey 0 0
 record.save_directory /home/gleipnir/Videos
 record.start_stop_recording_hotkey 0 0
 replay.container matroska
-replay.save_directory /run/media/gleipnir/Jogos/Videos/Replay
+replay.save_directory /home/gleipnir/Videos
 replay.save_recording_hotkey 122 256
 replay.start_stop_recording_hotkey 0 0
 replay.time 300
