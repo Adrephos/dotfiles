@@ -6,8 +6,10 @@ PRJ="$(zoxide query -i)"
 echo "Launching tmux for $PRJ"
 cd "$PRJ" || exit 1
 
-SESSION_NAME="$(basename "$PRJ")"
+SESSION_NAME="$(echo "$PRJ" | base64)"
 TMUX_SOCKET="$PRJ.tmux"
+
+echo $SESSION_NAME
 
 if ! tmux -S "$TMUX_SOCKET" has-session -t "$SESSION_NAME" 2>/dev/null; then
   # Create a new session with first window running nvim
