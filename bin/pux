@@ -2,14 +2,27 @@
 
 set -euo pipefail
 
-PRJ="$(zoxide query -i)"
+# Use the first argument as the project path if provided; otherwise, use zoxide
+if [[ $# -ge 1 ]]; then
+  if   [ -d "${1}" ]
+  then echo "${1} is a directory";
+  PRJ="$(realpath $1)"
+  else echo "${1} is not valid";
+    PRJ="$(zoxide query -i)"
+  fi
+else
+  PRJ="$(zoxide query -i)"
+fi
+
 echo "Launching tmux for $PRJ"
 cd "$PRJ" || exit 1
 
-SESSION_NAME="$(echo "$PRJ" | base64 -w 0)"
-TMUX_SOCKET="$PRJ.tmux"
+SESSION_NAME="$(echo "$PRJ" | sha1sum | cut -d ' ' -f1)"
+SOCKET_DIR="${HOME}/.tmux/sockets"
+mkdir -p "$SOCKET_DIR"
+TMUX_SOCKET="${SOCKET_DIR}/${SESSION_NAME}.sock"
 
-echo $SESSION_NAME
+echo "Session name: $SESSION_NAME"
 
 if ! tmux -S "$TMUX_SOCKET" has-session -t "$SESSION_NAME" 2>/dev/null; then
   # Create a new session with first window running nvim
