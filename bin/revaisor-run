@@ -3,8 +3,9 @@
 jwt_function() {
   local email="$1"
   local password="$2"
+  local api_key="${REVAISOR_GOOGLE_API_KEY}"
   curl --location --silent \
-    --request POST 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAim5IQ13frsJQ7FHM_EGJ86tayn_U8iNU' \
+    --request POST "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${api_key}" \
     --header 'content-type: application/json' \
     --data-raw "
       {
