@@ -8,7 +8,7 @@
 		"x": 1952,
 		"y": 2
 	},
-	"url": "https://music.youtube.com/watch?v=ofwVHr5G9nM&list=PLmN9DPbTcOwwfNMa8n9rRGeq9H32PaAu-&index=0",
+	"url": "https://music.youtube.com/watch?v=rHM6D8YD7r4&list=RDAOIhZWMOBzqRdcaV-DTFboOA&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -114,6 +114,9 @@
 			"enabled": false
 		},
 		"equalizer": {
+			"enabled": true
+		},
+		"crossfade": {
 			"enabled": true
 		}
 	},

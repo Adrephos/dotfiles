@@ -1,4 +1,4 @@
-main.advanced_view false
+main.advanced_view true
 main.audio_codec opus
 main.audio_input device:Default output
 main.audio_input device:Default input
@@ -16,7 +16,7 @@ main.overclock false
 main.quality custom
 main.record_app_audio_inverted false
 main.record_area_height 1080
-main.record_area_option focused
+main.record_area_option HDMI-A-1-0
 main.record_area_width 1920
 main.record_cursor true
 main.restore_portal_session true
