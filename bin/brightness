@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-if [ "$1" = "up" ]; then
-	sudo brillo -A 5
-else
-	sudo brillo -U 5
-fi
-

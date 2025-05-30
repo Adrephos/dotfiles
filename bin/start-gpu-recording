@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+PREF_DIR="/run/media/$(whoami)/Jogos/Videos/Replay"
+FALLBACK_DIR="$HOME/Videos"
+
+# Ensure the preferred directory exists
+# mkdir -p "$PREF_DIR"
+
+if [ -d "$PREF_DIR" ]; then
+    OUTDIR="$PREF_DIR"
+else
+    OUTDIR="$FALLBACK_DIR"
+fi
+
+# Show notification
+notify-send "Screen Recording" "Started replay saving to $OUTDIR"
+
+# Start recording the entire screen with audio (customize as needed)
+gpu-screen-recorder -w focused -s 1920x1080 -f 30 -o "$OUTDIR" -bm qp -k hevc -a "default_input|default_output" -r 300 -c mkv

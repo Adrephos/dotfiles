@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+jwt_function() {
+  local email="$1"
+  local password="$2"
+  curl --location --silent \
+    --request POST 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAim5IQ13frsJQ7FHM_EGJ86tayn_U8iNU' \
+    --header 'content-type: application/json' \
+    --data-raw "
+      {
+        \"email\": \"$email\",
+        \"password\": \"$password\",
+        \"returnSecureToken\": true
+      }" | jq
+}
+
+# Check if an argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <command>"
+  echo "Available commands: db, java"
+  exit 1
+fi
+
+# Perform actions based on the argument
+case "$1" in
+  db)
+    echo "Loading database credentials..."
+    source /home/gleipnir/workspace/github.com/revaisor/revaisor-db/export_database_credentials.sh
+    ;;
+  java)
+    echo "Loading Java environment variables..."
+    source /home/gleipnir/workspace/github.com/revaisor/revaisor-db/export_database_credentials.sh
+    source /home/gleipnir/workspace/github.com/revaisor/revaisor-db/env-development-java.sh
+    mvn spring-boot:run
+    ;;
+  jwt)
+    jwt_function "$REVAISOR_EMAIL" "$REVAISOR_PASSWORD"
+    ;;
+  jwt2)
+    jwt_function "$REVAISOR_EMAIL_2" "$REVAISOR_PASSWORD_2"
+    ;;
+  *)
+    echo "Unknown command: $1"
+    echo "Use '$0 help' to see available commands."
+    ;;
+esac
+
