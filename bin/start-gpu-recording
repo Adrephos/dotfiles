@@ -16,4 +16,4 @@ fi
 notify-send "Screen Recording" "Started replay saving to $OUTDIR"
 
 # Start recording the entire screen with audio (customize as needed)
-gpu-screen-recorder -w focused -s 1920x1080 -f 30 -o "$OUTDIR" -bm qp -k hevc -a "default_input|default_output" -r 300 -c mkv
+gpu-screen-recorder -w focused -s 1920x1080 -f 30 -o "$OUTDIR" -bm qp -k hevc -a "default_input|default_output" -r 600 -c mkv
