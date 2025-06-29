@@ -1,14 +1,14 @@
 {
 	"window-size": {
-		"width": 1967,
-		"height": 1112
+		"width": 1947,
+		"height": 1094
 	},
 	"window-maximized": true,
 	"window-position": {
-		"x": 1952,
+		"x": 2,
 		"y": 2
 	},
-	"url": "https://music.youtube.com/watch?v=89GvgJ0Rn54&list=LRSRWhFd5qlOb89F_sLtNtQ-wQSI5DVmi9xiy&index=0",
+	"url": "https://music.youtube.com/watch?v=p00v9ZFhWJM&list=RDTMAK5uy_kset8DisdE7LSD4TNjEVvrKRTmG7a56sY&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -33,7 +33,7 @@
 	"plugins": {
 		"notifications": {
 			"enabled": true,
-			"unpauseNotification": true,
+			"unpauseNotification": false,
 			"urgency": "normal",
 			"interactive": true,
 			"toastStyle": 1,
@@ -52,7 +52,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 40
+			"savedVolume": 30
 		},
 		"discord": {
 			"enabled": true,
@@ -81,7 +81,7 @@
 			"ratio": 0.5
 		},
 		"lyrics-genius": {
-			"enabled": false,
+			"enabled": true,
 			"romanizedLyrics": false
 		},
 		"skip-disliked-songs": {
@@ -117,12 +117,15 @@
 			"enabled": true
 		},
 		"crossfade": {
+			"enabled": false
+		},
+		"performance-improvement": {
 			"enabled": true
 		}
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "3.8.0"
+			"version": "3.9.0"
 		}
 	}
 }

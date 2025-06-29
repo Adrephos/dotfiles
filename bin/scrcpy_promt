@@ -8,7 +8,7 @@ while true; do
         if [[ "$choice" == "Yes" ]]; then
             # Switch to workspace 7 before launching
             i3-msg 'workspace 7:七'
-            scrcpy --stay-awake &
+            scrcpy --stay-awake --no-key-repeat --render-driver=opengles --video-codec-options=color-range=1 &
         fi
 
         # Wait for disconnection before looping again
