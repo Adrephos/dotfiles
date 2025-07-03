@@ -1,4 +1,4 @@
-# D otfiles
+# Dotfiles
 |                                              |                                         |
 |----------------------------------------------|-----------------------------------------|
 | ![wallpaper](./Pictures/wallpaper-sshot.png) | ![nvim](./Pictures/nvim-sshot.png)      |
