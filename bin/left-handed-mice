@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Usage check
+if [[ "$1" != "true" && "$1" != "false" ]]; then
+  echo "Usage: $0 [true|false]"
+  exit 1
+fi
+
+LEFT_HANDED="$1"
+
+# Get all mouse device names
+MICE=$(hyprctl devices | awk '/mice:/,/Keyboards:/' | grep -E '^\s+[a-zA-Z0-9].*' | awk '{$1=$1;print}' | grep -v 'Mouse at' | grep -v 'default.*')
+
+if [ -z "$MICE" ]; then
+  echo "No mouse devices found."
+  exit 1
+fi
+
+# Apply left-handed setting to each device
+while read -r MOUSE; do
+  echo "Setting \"$MOUSE\" to left_handed: $LEFT_HANDED"
+  hyprctl -r -- keyword "device[$MOUSE]:left_handed" $LEFT_HANDED
+done <<< "$MICE"
+
+echo "✅ All mouse devices updated."
