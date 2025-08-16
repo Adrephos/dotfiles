@@ -14,8 +14,20 @@ echo "Searching in: $ROOT_DIR"
 echo "Replacing: $OLD_HOST -> $NEW_HOST"
 echo "Mode: ${APPLY:-preview}"
 
-find "$ROOT_DIR" -type d -name ".git" | while read -r gitdir; do
-  repo=$(dirname "$gitdir")
+# Match both bare and non-bare repos
+find "$ROOT_DIR" -type d \( -name "*.git" -o -name ".git" \) | while read -r gitdir; do
+  # Detect if it's a bare repo or not
+  if [ -f "$gitdir/config" ]; then
+    config_path="$gitdir/config"
+    repo="$gitdir"
+  elif [ -f "$gitdir/.git/config" ]; then
+    config_path="$gitdir/.git/config"
+    repo="$gitdir"
+  else
+    echo "⚠️ Skipping unrecognized repo format: $gitdir"
+    continue
+  fi
+
   cd "$repo" || continue
 
   if ! git remote get-url origin &> /dev/null; then

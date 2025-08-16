@@ -1,14 +1,14 @@
 {
 	"window-size": {
 		"width": 1908,
-		"height": 1038
+		"height": 1068
 	},
 	"window-maximized": false,
 	"window-position": {
 		"x": 1926,
-		"y": 36
+		"y": 6
 	},
-	"url": "https://music.youtube.com/watch?v=izlKehxIEcA&list=RDAMVMRYC71PAuIKE&index=0",
+	"url": "https://music.youtube.com/watch?v=t19JNA8KVQY&list=RDTMAK5uy_kset8DisdE7LSD4TNjEVvrKRTmG7a56sY&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -33,7 +33,7 @@
 	"plugins": {
 		"notifications": {
 			"enabled": true,
-			"unpauseNotification": false,
+			"unpauseNotification": true,
 			"urgency": "normal",
 			"interactive": true,
 			"toastStyle": 1,
@@ -71,7 +71,23 @@
 			"enabled": true
 		},
 		"scrobbler": {
-			"enabled": true
+			"enabled": true,
+			"scrobbleOtherMedia": true,
+			"alternativeTitles": true,
+			"scrobblers": {
+				"lastfm": {
+					"enabled": true,
+					"token": "ANs0zASy3EvkLZ4Im_4AzKiaAyngcj3Q",
+					"sessionKey": "klNHqcGZHWKcFYc9befZekiSE494fku0",
+					"apiRoot": "https://ws.audioscrobbler.com/2.0/",
+					"apiKey": "45dac8f747b3e45c220af495e62cf3c9",
+					"secret": "3250f4ce00d3bf3c3053d8c79531c1dd"
+				},
+				"listenbrainz": {
+					"enabled": false,
+					"apiRoot": "https://api.listenbrainz.org/1/"
+				}
+			}
 		},
 		"quality-changer": {
 			"enabled": true
@@ -121,6 +137,19 @@
 		},
 		"performance-improvement": {
 			"enabled": true
+		},
+		"ambient-mode": {
+			"enabled": true,
+			"quality": 100,
+			"buffer": 30,
+			"interpolationTime": 1500,
+			"blur": 100,
+			"size": 110,
+			"opacity": 1,
+			"fullscreen": false
+		},
+		"album-actions": {
+			"enabled": false
 		}
 	},
 	"__internal__": {

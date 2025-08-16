@@ -3,9 +3,6 @@
 PREF_DIR="/run/media/$(whoami)/Jogos/Videos/Replay"
 FALLBACK_DIR="$HOME/Videos"
 
-# Ensure the preferred directory exists
-# mkdir -p "$PREF_DIR"
-
 if [ -d "$PREF_DIR" ]; then
     OUTDIR="$PREF_DIR"
 else
@@ -13,7 +10,7 @@ else
 fi
 
 # Show notification
-notify-send "Screen Recording" "Started replay saving to $OUTDIR"
+notify-send -a "Screen Replay" "Screen Recording" "Started replay saving to $OUTDIR"
 
 # Start recording the entire screen with audio
 gpu-screen-recorder -w portal -s 1920x1080 -f 30 -o "$OUTDIR" -bm qp -k h264 -a "default_input|default_output" -r 600 -c mkv
