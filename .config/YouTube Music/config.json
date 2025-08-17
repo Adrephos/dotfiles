@@ -8,7 +8,7 @@
 		"x": 1926,
 		"y": 6
 	},
-	"url": "https://music.youtube.com/watch?v=t19JNA8KVQY&list=RDTMAK5uy_kset8DisdE7LSD4TNjEVvrKRTmG7a56sY&index=0",
+	"url": "https://music.youtube.com/watch?v=4j74Tqo50gI&list=PLmN9DPbTcOwwFcn5brxSZM_GPMo3LGqsq&index=0",
 	"options": {
 		"tray": false,
 		"appVisible": true,
@@ -52,7 +52,7 @@
 				"volumeUp": "",
 				"volumeDown": ""
 			},
-			"savedVolume": 30
+			"savedVolume": 35
 		},
 		"discord": {
 			"enabled": true,
@@ -71,7 +71,7 @@
 			"enabled": true
 		},
 		"scrobbler": {
-			"enabled": true,
+			"enabled": false,
 			"scrobbleOtherMedia": true,
 			"alternativeTitles": true,
 			"scrobblers": {
@@ -80,8 +80,8 @@
 					"token": "ANs0zASy3EvkLZ4Im_4AzKiaAyngcj3Q",
 					"sessionKey": "klNHqcGZHWKcFYc9befZekiSE494fku0",
 					"apiRoot": "https://ws.audioscrobbler.com/2.0/",
-					"apiKey": "45dac8f747b3e45c220af495e62cf3c9",
-					"secret": "3250f4ce00d3bf3c3053d8c79531c1dd"
+					"apiKey": "",
+					"secret": ""
 				},
 				"listenbrainz": {
 					"enabled": false,

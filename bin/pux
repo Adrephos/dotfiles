@@ -21,7 +21,7 @@ cd "$PRJ" || exit 1
 DIR_NAME="$(basename "$PRJ")"
 printf "\033]2;%s\007" "$DIR_NAME"
 
-SESSION_NAME="$(echo "$PRJ" | sha1sum | cut -d ' ' -f1)"
+SESSION_NAME="$(echo "$PRJ" | cksum | cut -d ' ' -f1)"
 SOCKET_DIR="${HOME}/.tmux/sockets"
 mkdir -p "$SOCKET_DIR"
 TMUX_SOCKET="${SOCKET_DIR}/${SESSION_NAME}.sock"
@@ -33,7 +33,7 @@ if ! tmux -S "$TMUX_SOCKET" has-session -t "$SESSION_NAME" 2>/dev/null; then
   tmux -S "$TMUX_SOCKET" new-session -d -s "$SESSION_NAME" -c "$PRJ" -n nvim 'nvim'
 
   # Create a second window with a shell
-  tmux -S "$TMUX_SOCKET" new-window -t "$SESSION_NAME" -n shell -c "$PRJ"
+  tmux -S "$TMUX_SOCKET" new-window -c "$PRJ"
 fi
 
 # Attach and focus the nvim window
